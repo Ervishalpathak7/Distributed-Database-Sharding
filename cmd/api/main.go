@@ -2,9 +2,10 @@ package main
 
 import (
 	"log"
+
 	"github.com/Ervishalpathak7/Distributed-Database-Sharding/configs"
-	userRoutes"github.com/Ervishalpathak7/Distributed-Database-Sharding/internal/routes"
-	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/db"
+	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/Db"
+	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/Routes"
 	"github.com/gin-gonic/gin"
 )
 

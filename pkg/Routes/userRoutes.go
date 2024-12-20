@@ -1,7 +1,7 @@
 package userRoutes
 
 import (
-	"github.com/Ervishalpathak7/Distributed-Database-Sharding/internal/controllers"
+	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/Controllers"
 	"github.com/gin-gonic/gin"
 )
 
