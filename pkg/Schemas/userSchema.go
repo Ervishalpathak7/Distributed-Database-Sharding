@@ -1,4 +1,5 @@
-package userSchema
+package Schema
+
 
 import (
 	"time"

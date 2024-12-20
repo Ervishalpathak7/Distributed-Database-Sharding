@@ -1,4 +1,4 @@
-package userRoutes
+package Routes
 
 import (
 	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/Controllers"
@@ -6,10 +6,10 @@ import (
 )
 
 
-func RegisterRoutes(router *gin.Engine) {
+func RegisterUserRoutes(router *gin.Engine) {
 	// User routes
-	router.GET("/user/:userId", userControllers.CreateUser)
-	router.POST("/user", userControllers.CreateUser)
-	router.PUT("user/:userId", userControllers.UpdateUser)
-	router.DELETE("user/:userId", userControllers.DeleteUser)
+	router.GET("/user/:userId", Controllers.CreateUser)
+	router.POST("/user", Controllers.CreateUser)
+	router.PUT("user/:userId", Controllers.UpdateUser)
+	router.DELETE("user/:userId", Controllers.DeleteUser)
 }

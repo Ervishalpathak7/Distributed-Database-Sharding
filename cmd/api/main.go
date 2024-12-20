@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-
 	"github.com/Ervishalpathak7/Distributed-Database-Sharding/configs"
 	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/Db"
 	"github.com/Ervishalpathak7/Distributed-Database-Sharding/pkg/Routes"
@@ -31,7 +30,9 @@ func main() {
 	router := gin.Default()
 
 	// Register routes
-	userRoutes.RegisterRoutes(router)
+	Routes.RegisterUserRoutes(router)
+	Routes.RegisterProductRoutes(router)
+
 
 	// Run the server
 	router.Run(":" + config.Server.Port)

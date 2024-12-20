@@ -1,4 +1,4 @@
-package userControllers
+package Controllers
 
 import (
 	"net/http"
@@ -23,7 +23,7 @@ func GetUsers(c *gin.Context) {
 	}
 
 	collection := db.Client.Database("shardDB").Collection("users")
-	var user userSchema.User
+	var user Schema.User
 
 	err = collection.FindOne(c.Request.Context(), bson.M{"_id": objectId}).Decode(&user)
 	if err != nil {
@@ -40,7 +40,7 @@ func GetUsers(c *gin.Context) {
 
 // CreateUser creates a new user in MongoDB
 func CreateUser(c *gin.Context) {
-	user := userSchema.NewUser()
+	user := Schema.NewUser()
 
 	if err := c.ShouldBindJSON(user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -55,7 +55,7 @@ func CreateUser(c *gin.Context) {
 	collection := db.Client.Database("shardDB").Collection("users")
 
 	// Check if the user already exists
-	var existingUser userSchema.User
+	var existingUser Schema.User
 	err := collection.FindOne(c.Request.Context(), bson.M{
 		"$or": []bson.M{
 			{"email": user.Email},
@@ -119,7 +119,7 @@ func UpdateUser(c *gin.Context) {
 
     // Check email/phone uniqueness if they're being updated
     if updates.Email != "" || updates.Phone != "" {
-        var existingUser userSchema.User
+        var existingUser Schema.User
         filter := bson.M{
             "$and": []bson.M{
                 {"_id": bson.M{"$ne": objectId}},
